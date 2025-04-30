@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Intrusion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Network Intrusion Detection Form</h2>
+
+    <form id="nids-form">
+        <label for="protocol_type">Protocol Type:</label>
+        <select id="protocol_type">
+            <option value="tcp">TCP</option>
+            <option value="udp">UDP</option>
+            <option value="icmp">ICMP</option>
+        </select>
+        <label for="service">Service:</label>
+        <select id="service">
+            <option value="ftp_data">ftp_data</option>
+            <option value="other">other</option>
+            <option value="private">private</option>
+            <option value="http">http</option>
+            <option value="remote_job">remote_job</option>
+            <option value="name">name</option>
+            <option value="netbios_ns">netbios_ns</option>
+            <option value="eco_i">eco_i</option>
+            <option value="mtp">mtp</option>
+            <option value="telnet">telnet</option>
+            <option value="finger">finger</option>
+            <option value="domain_u">domain_u</option>
+            <option value="supdup">supdup</option>
+            <option value="uucp_path">uucp_path</option>
+            <option value="Z39_50">Z39_50</option>
+            <option value="smtp">smtp</option>
+            <option value="csnet_ns">csnet_ns</option>
+            <option value="uucp">uucp</option>
+            <option value="netbios_dgm">netbios_dgm</option>
+            <option value="urp_i">urp_i</option>
+            <option value="auth">auth</option>
+            <option value="domain">domain</option>
+            <option value="ftp">ftp</option>
+            <option value="bgp">bgp</option>
+            <option value="ldap">ldap</option>
+            <option value="ecr_i">ecr_i</option>
+            <option value="gopher">gopher</option>
+            <option value="vmnet">vmnet</option>
+            <option value="systat">systat</option>
+            <option value="http_443">http_443</option>
+            <option value="efs">efs</option>
+            <option value="whois">whois</option>
+            <option value="imap4">imap4</option>
+            <option value="iso_tsap">iso_tsap</option>
+            <option value="echo">echo</option>
+            <option value="klogin">klogin</option>
+            <option value="link">link</option>
+            <option value="sunrpc">sunrpc</option>
+            <option value="login">login</option>
+            <option value="kshell">kshell</option>
+            <option value="sql_net">sql_net</option>
+            <option value="time">time</option>
+            <option value="hostnames">hostnames</option>
+            <option value="exec">exec</option>
+            <option value="ntp_u">ntp_u</option>
+            <option value="discard">discard</option>
+            <option value="nntp">nntp</option>
+            <option value="courier">courier</option>
+            <option value="ctf">ctf</option>
+            <option value="ssh">ssh</option>
+            <option value="daytime">daytime</option>
+            <option value="shell">shell</option>
+            <option value="netstat">netstat</option>
+            <option value="pop_3">pop_3</option>
+            <option value="nnsp">nnsp</option>
+            <option value="IRC">IRC</option>
+            <option value="pop_2">pop_2</option>
+            <option value="printer">printer</option>
+            <option value="tim_i">tim_i</option>
+            <option value="pm_dump">pm_dump</option>
+            <option value="red_i">red_i</option>
+            <option value="netbios_ssn">netbios_ssn</option>
+            <option value="rje">rje</option>
+            <option value="X11">X11</option>
+            <option value="urh_i">urh_i</option>
+            <option value="http_8001">http_8001</option>
+        </select>
+
+        <label for="flag">Flag:</label>
+        <select id="flag">
+            <option value="SF">SF</option>
+            <option value="S0">S0</option>
+            <option value="REJ">REJ</option>
+            <option value="RSTR">RSTR</option>
+            <option value="SH">SH</option>
+            <option value="RSTO">RSTO</option>
+            <option value="S1">S1</option>
+            <option value="RSTOS0">RSTOS0</option>
+            <option value="S3">S3</option>
+            <option value="S2">S2</option>
+            <option value="OTH">OTH</option>
+        </select>
+
+        <label for="src_bytes">Source Bytes:</label>
+        <input type="number" id="src_bytes" placeholder="491" required>
+
+        <label for="dst_bytes">Destination Bytes:</label>
+        <input type="number" id="dst_bytes" placeholder="0" required>
+
+        <label for="logged_in">Logged In:</label>
+        <input type="number" id="logged_in" placeholder="0" required>
+
+        <label for="same_srv_rate">Same Service Rate:</label>
+        <input type="number" step="0.01" id="same_srv_rate" placeholder="1.0" required>
+
+        <label for="diff_srv_rate">Different Service Rate:</label>
+        <input type="number" step="0.01" id="diff_srv_rate" placeholder="0.15" required>
+
+        <label for="dst_host_srv_count">Destination Host Service Count:</label>
+        <input type="number" id="dst_host_srv_count" placeholder="25" required>
+
+        <label for="dst_host_same_srv_rate">Destination Host Same Service Rate:</label>
+        <input type="number" step="0.01" id="dst_host_same_srv_rate" placeholder="0.17" required>
+
+        <label for="dst_host_diff_srv_rate">Destination Host Different Service Rate:</label>
+        <input type="number" step="0.01" id="dst_host_diff_srv_rate" placeholder="0.03" required>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const data = {
+                protocol_type: document.getElementById("protocol_type").value,
+                service: document.getElementById("service").value,
+                flag: document.getElementById("flag").value,
+                src_bytes: document.getElementById("src_bytes").value,
+                dst_bytes: document.getElementById("dst_bytes").value,
+                logged_in: document.getElementById("logged_in").value,
+                same_srv_rate: document.getElementById("same_srv_rate").value,
+                diff_srv_rate: document.getElementById("diff_srv_rate").value,
+                dst_host_srv_count: document.getElementById("dst_host_srv_count").value,
+                dst_host_same_srv_rate: document.getElementById("dst_host_same_srv_rate").value,
+                dst_host_diff_srv_rate: document.getElementById("dst_host_diff_srv_rate").value
+            };
+
+            fetch("http://127.0.0.1:5000/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => alert("Prediction: " + result.label));
+        }
+    </script>
+
+</body>
+</html>
